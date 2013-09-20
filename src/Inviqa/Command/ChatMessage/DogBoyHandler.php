@@ -16,6 +16,7 @@ class DogBoyHandler extends AbstractHandler implements ChatMessageHandlerInterfa
             if (stristr(preg_replace('#[\W]#', '', $bodyText), 'dog') 
                 || stristr($bodyText, 'toivo') 
                 || stristr($bodyText, 'mansfield')
+                || stristr($bodyText, 'robot')
             ) {
                 $this->engine->invoke("CHATMESSAGE $roomName Potential dog story detected. :-O");
                 $this->engine->invoke("ALTER CHAT $roomName KICK $username");
