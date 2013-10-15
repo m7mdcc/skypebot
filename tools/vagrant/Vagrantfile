@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+vm_ip = "192.168.79.229"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "skypebot-ubuntu-quantal64"
+  config.vm.box_url = "http://ib-vagrant-vms.s3.amazonaws.com/skypebot-ubuntu-quantal64.box"
+
+  config.vm.network :private_network, ip: vm_ip
+
+  config.vm.synced_folder "../..", "/mnt/skypebot"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true
+  end
+
+  # config.vm.provision :chef_solo do |chef|
+  #   chef.cookbooks_path = "../my-recipes/cookbooks"
+  #   chef.roles_path = "../my-recipes/roles"
+  #   chef.data_bags_path = "../my-recipes/data_bags"
+  #   chef.add_recipe "mysql"
+  #   chef.add_role "web"
+  #
+  #   # You may also specify custom JSON attributes:
+  #   chef.json = { :mysql_password => "foo" }
+  # end
+
+end
