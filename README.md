@@ -46,7 +46,7 @@ Chat message handler objects should be added the the ChatMessageHandler **after*
     $engine = new SkypeEngine($n);
     $chatMessageHandler = new ChatMessageCommandHandler();
     $engine->addCommandHandler($chatMessageHandler);
-    $chatMessageHandler->add(new DogBoyHandler())
+    $chatMessageHandler->add(new PingHandler())
 
 ## Contributing
 

@@ -3,7 +3,6 @@
 use Inviqa\Command\ChatMessage\BurritoHandler;
 use Inviqa\Command\ChatMessage\CreateHandler;
 use Inviqa\Command\ChatMessage\DeployHandler;
-use Inviqa\Command\ChatMessage\DogBoyHandler;
 use Inviqa\Command\ChatMessage\InfoHandler;
 use Inviqa\Command\ChatMessage\MagentoHandler;
 use Inviqa\Command\ChatMessage\PingHandler;
@@ -22,7 +21,7 @@ $engine->addCommandHandler(new UserCommandHandler());
 $chatMessageHandler = new ChatMessageCommandHandler();
 $engine->addCommandHandler($chatMessageHandler);
 
-$chatMessageHandler->add(new DogBoyHandler())
+$chatMessageHandler
     ->add(new CreateHandler())
     ->add(new PingHandler())
     ->add(new MagentoHandler())
@@ -30,6 +29,6 @@ $chatMessageHandler->add(new DogBoyHandler())
     ->add(new PlannerHandler())
     ->add(new WikiHandler())
     ->add(new DeployHandler())
-    ->add(new InfoHandler());   
+    ->add(new InfoHandler());
 
 return $engine;
