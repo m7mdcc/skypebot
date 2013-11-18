@@ -32,7 +32,9 @@ $d->registerObject( '/com/Skype/Client', 'com.Skype.API.Client', 'SkypeBot' );
 
 echo "Entering wait loop".PHP_EOL;
 
+$x = 0;
 do {
     $s = $d->waitLoop( 1000 );
+    $x++;
 }
-while ( true );
+while ( $x < 10000 );
