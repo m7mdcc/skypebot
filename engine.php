@@ -8,6 +8,7 @@ use Inviqa\Command\ChatMessage\MagentoHandler;
 use Inviqa\Command\ChatMessage\PingHandler;
 use Inviqa\Command\ChatMessage\PlannerHandler;
 use Inviqa\Command\ChatMessage\WikiHandler;
+use Inviqa\Command\ChatMessage\FrontdoorHandler;
 use Inviqa\Command\ChatMessageCommandHandler;
 use Inviqa\Command\UserCommandHandler;
 use Inviqa\SkypeEngine;
@@ -29,6 +30,7 @@ $chatMessageHandler
     ->add(new PlannerHandler())
     ->add(new WikiHandler())
     ->add(new DeployHandler())
+    ->add(new FrontdoorHandler())
     ->add(new InfoHandler());
 
 return $engine;
