@@ -10,13 +10,6 @@ SITE
       build-essential (~> 1.4)
       openssl (~> 1.1)
     openssl (1.1.0)
-    php (1.3.10)
-      build-essential (>= 0.0.0)
-      iis (>= 0.0.0)
-      mysql (>= 0.0.0)
-      windows (>= 0.0.0)
-      xml (>= 0.0.0)
-      yum-epel (>= 0.0.0)
     windows (1.12.8)
       chef_handler (>= 0.0.0)
     xml (1.2.0)
@@ -24,6 +17,19 @@ SITE
     yum (3.0.4)
     yum-epel (0.2.0)
       yum (~> 3.0)
+
+GIT
+  remote: https://github.com/shanethehat/php
+  ref: master
+  sha: 88dc05eeb2056451e837d46bb662c067f1b02046
+  specs:
+    php (1.3.10)
+      build-essential (>= 0.0.0)
+      iis (>= 0.0.0)
+      mysql (>= 0.0.0)
+      windows (>= 0.0.0)
+      xml (>= 0.0.0)
+      yum-epel (>= 0.0.0)
 
 DEPENDENCIES
   apt (>= 0)
