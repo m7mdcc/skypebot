@@ -6,7 +6,7 @@ use Inviqa\SkypeCommandInterface;
 
 class BurritoHandler extends AbstractHandler implements ChatMessageHandlerInterface
 {
-    const BURRITO_URL = "https://docs.google.com/a/inviqa.com/spreadsheet/ccc?key=0AgaDiKrNejnsdHRGTEFIMGxlOVVxQXpkbExYQlk1N2c";
+    const BURRITO_URL = "http://invi.qa/sheffield-burrito";
     
     public function handle(SkypeCommandInterface $chatname, SkypeCommandInterface $handle, SkypeCommandInterface $body)
     {
