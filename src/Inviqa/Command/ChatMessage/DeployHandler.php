@@ -45,6 +45,6 @@ class DeployHandler extends AbstractHandler implements ChatMessageHandlerInterfa
         $filename = uniqid();
         $log = "logs/$filename.txt";
         file_put_contents(__DIR__."/$log", implode("\n", $output));
-        $this->engine->invoke("CHATMESSAGE {$chatname->getValue()} Deployment complete - check http://incubator.inviqa.com:9001/$log for details.");
+        $this->engine->invoke("CHATMESSAGE {$chatname->getValue()} Deployment complete - check http://skypebot.inviqa.com:9001/$log for details.");
     }
 }

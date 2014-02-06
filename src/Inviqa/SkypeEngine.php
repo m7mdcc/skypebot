@@ -38,8 +38,8 @@ class SkypeEngine {
 
     protected function showChatInfo($name)
     {
-        $githubBase = "http://incubator.inviqa.com:9001/github.php";
-        $jenkinsBase = "http://incubator.inviqa.com:9001/jenkins.php";
+        $githubBase = "http://skypebot.inviqa.com:9001/github.php";
+        $jenkinsBase = "http://skypebot.inviqa.com:9001/jenkins.php";
         $this->dbus->Invoke("CHATMESSAGE $name For github integration, add this URL; $githubBase?id=".urlencode($name)." as a commit hook in your github repository.\n\nFor Jenkins Notifications use $jenkinsBase?id=".urlencode($name)."");
     }
 

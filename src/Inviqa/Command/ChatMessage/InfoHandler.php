@@ -12,8 +12,8 @@ class InfoHandler extends AbstractHandler implements ChatMessageHandlerInterface
             return;
         }
         
-        $githubBase = "http://incubator.inviqa.com:9001/github.php";
-        $jenkinsBase = "http://incubator.inviqa.com:9001/jenkins.php";
+        $githubBase = "http://skypebot.inviqa.com:9001/github.php";
+        $jenkinsBase = "http://skypebot.inviqa.com:9001/jenkins.php";
         $encodedChatname = urlencode($chatname->getValue());
         $this->engine->invoke(
             sprintf(
