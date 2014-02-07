@@ -3,6 +3,4 @@
 site "http://community.opscode.com/api/v1"
 
 cookbook "apt"
-cookbook "php", 
-	:git => "https://github.com/shanethehat/php", 
-	:ref => "master"
+cookbook "php"
