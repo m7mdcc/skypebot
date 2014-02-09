@@ -4,7 +4,10 @@ php:
   - "5.5"
   - "5.4"
 
-before_script: composer install --dev
+before_script:
+  - sudo apt-get install -y pkg-config dbus libdbus-1-dev libxml2-dev
+  - pecl install -f DBus-0.1.1
+  - composer install --dev
 
 script:
   - bin/phpspec run

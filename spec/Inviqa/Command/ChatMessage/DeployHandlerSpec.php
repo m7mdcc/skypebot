@@ -21,9 +21,4 @@ class DeployHandlerSpec extends ObjectBehavior
         $chatname->getValue()->shouldNotBeCalled();
         $this->handle($chatname, $handle, $body);
     }
-
-    function it_responds_to_the_deploy_keywork()
-    {
-
-    }
 }
