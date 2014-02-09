@@ -50,7 +50,7 @@ Chat message handler objects should be added the the ChatMessageHandler **after*
 
 ## Contributing
 
-The Skypebot is an open source project, and pull requests are welcome. Ideally, bug fixes and new features should be supported by unit tests, and PSR-2 coding style is preferred.
+The Skypebot is an open source project, and pull requests are welcome. Ideally, bug fixes and new features should be supported by specs, and PSR-2 coding style is preferred.
 
 ## License and Author
 
