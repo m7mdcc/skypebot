@@ -76,7 +76,7 @@ class ChatMessageCommandHandlerSpec extends ObjectBehavior
         $command->getValue()->willReturn('not received');
 
         $messageHandler->setEngine(Argument::any())->shouldBeCalled();
-        $messageHandler->handle(Argument::any(), Argument::any(), Argument::any())->shouldNotBeCalled();
+        $messageHandler->handle(Argument::cetera())->shouldNotBeCalled();
 
         $this->add($messageHandler);
         $this->handleCommand($command);
