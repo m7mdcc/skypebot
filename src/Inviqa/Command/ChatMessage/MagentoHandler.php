@@ -19,13 +19,13 @@ class MagentoHandler extends AbstractHandler implements ChatMessageHandlerInterf
         'Are you really checking the same environment as you are making changes on?',
         'Have you sacrificed a chicken?',
     );
-    
+
     public function handle(SkypeCommandInterface $chatname, SkypeCommandInterface $handle, SkypeCommandInterface $body)
     {
         if (!$this->firstWordIs(':magento', $body->getValue())) {
             return;
         }
-        
+
         $suggestion = $this->suggestions[array_rand($this->suggestions)];
         $this->engine->invoke("CHATMESSAGE {$chatname->getValue()} $suggestion");
     }
