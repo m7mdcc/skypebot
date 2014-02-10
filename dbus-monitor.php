@@ -1,6 +1,5 @@
 <?php
 require_once 'vendor/autoload.php';
-use Inviqa\SkypeEngine;
 
 class SkypeBot {
     static function notify($a) {
