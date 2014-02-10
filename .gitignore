@@ -2,3 +2,6 @@ composer.phar
 vendor/
 bin/
 build/
+tools/vagrant/.vagrant
+tools/chef/cookbooks
+tools/chef/tmp

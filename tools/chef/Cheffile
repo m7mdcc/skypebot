@@ -1,0 +1,6 @@
+# Chef recipes to load with librarian
+
+site "http://community.opscode.com/api/v1"
+
+cookbook "apt"
+cookbook "php"

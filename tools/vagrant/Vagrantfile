@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+vm_ip = "192.168.79.229"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.box = "Ubuntu-12.10-x86_64-Desktop-minimal-0.1.0"
+  config.vm.box_url = "http://ib-vagrant-vms.s3.amazonaws.com/Ubuntu-12.10-x86_64-Desktop-minimal-0.1.0.box"
+
+  config.vm.network :private_network, ip: vm_ip
+
+  config.vm.synced_folder "../..", "/home/vagrant/skypebot"
+
+  config.vm.provider :virtualbox do |vb|
+    vb.gui = true
+  end
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["../chef/cookbooks", "../chef/app-cookbooks"]
+    chef.roles_path = ["../chef/roles", "../chef/app-roles"]
+    chef.add_recipe "ubuntu-config"
+    chef.add_recipe "apt"
+    chef.add_recipe "php"
+    chef.add_recipe "skype"
+    chef.add_recipe "skype::dbus"
+    chef.add_recipe "ubuntu-config::launcher"
+  end
+
+end
