@@ -4,8 +4,8 @@ namespace Inviqa;
 
 use Inviqa\Command\CommandHandlerInterface;
 
-class SkypeEngine {
-
+class SkypeEngine
+{
     protected $dbus = null;
 
     protected $handlers = array();
@@ -19,7 +19,7 @@ class SkypeEngine {
     {
         $skypeCommand = new SkypeCommand($command);
         foreach ($this->handlers as $commandHandler) {
-            if($commandHandler->handleCommand($skypeCommand)) {
+            if ($commandHandler->handleCommand($skypeCommand)) {
                 break;
             }
         }
@@ -38,10 +38,9 @@ class SkypeEngine {
 
     public static function getDbusProxy()
     {
-        $proxy = (new \Dbus(\Dbus::BUS_SESSION, true))->createProxy( "com.Skype.API", "/com/Skype", "com.Skype.API");
-        $proxy->Invoke( "NAME PHP" );
-        $proxy->Invoke( "PROTOCOL 7" );
+        $proxy = (new \Dbus(\Dbus::BUS_SESSION, true))->createProxy('com.Skype.API', '/com/Skype', 'com.Skype.API');
+        $proxy->Invoke('NAME PHP');
+        $proxy->Invoke('PROTOCOL 7');
         return $proxy;
     }
 }
-
