@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/autoload.php';
+require_once '../vendor/autoload.php';
 
 use Inviqa\SkypeEngine;
 
@@ -46,11 +46,11 @@ class JenkinsHandler
                     $payload->build->full_url
                 );
                 break;
-            default:
-                die('Not interested');
         }
 
-        SkypeEngine::getDbusProxy()->Invoke( "CHATMESSAGE {$_REQUEST['id']} $info");
+        if (!empty($info)) {
+            SkypeEngine::getDbusProxy()->Invoke( "CHATMESSAGE {$_REQUEST['id']} $info");
+        }
     }
 
     /**
