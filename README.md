@@ -25,23 +25,25 @@ The steps to starting up the VM are:
     # Start the VM
     cd ../vagrant
     vagrant up --provision
-    
+    # Add the VM IP to hosts
+    echo "192.168.79.229 skypebot.inviqa.local" | sudo tee -a /etc/hosts
+
 The VM will present VirtualBox in GUI mode. It is recommended to not sign in until the provisioning is complete.
 
 ### Using the VM
 
 Sign in with the credential. vagrant:vagrant
 
-The VM comes with PHP5.4, Skype and DBus preinstalled, and the bot source is mounted at `~/skypebot`. 
+The VM comes with PHP5.4, Skype and DBus preinstalled, and the bot source is mounted at `~/skypebot`.
 
 To use the bot, first open the Skype application. If required, you should create a new account to be your bot. )Once Skype is running, open a terminal and type:
 
     cd skypebot
     php dbus-monitor.php
-    
+
 On the first run, the Skype client application should show a popup that requires you to authorise the Dbus script.
 
-You can then install th Skype client application on your host machine, and using a different Skype account communicate with the bot inside your VM.
+You can then install the Skype client application on your host machine, and using a different Skype account communicate with the bot inside your VM.
 
 ## Installing locally
 
