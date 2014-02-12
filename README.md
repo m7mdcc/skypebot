@@ -95,6 +95,12 @@ Chat message handler objects should be added the the ChatMessageHandler **after*
 
 The Skypebot is an open source project, and pull requests are welcome. Ideally, bug fixes and new features should be supported by specs, and PSR-2 coding style is preferred.
 
+phpspec and PHP_CodeSniffer are included in the dev dependencies. Install and run them like this:
+
+    php composer.phar install
+    bin/phpspec run
+    bin/phpcs --standard=PSR2 src public
+
 ### License and Author
 
    Author:: Ben Longden (blongden@inviqa.com)
