@@ -28,11 +28,13 @@ class InfoHandlerSpec extends ObjectBehavior
     ) {
         $body->getValue()->willReturn(':info');
         $chatname->getValue()->willReturn('chatname');
-        $engine->invoke(sprintf(
+        $expected = sprintf(
             'CHATMESSAGE chatname For github integration, add this URL; %s?id=chatname as a commit hook in your github repository.\n\nFor Jenkins Notifications use %s?id=chatname',
             InfoHandler::GITHUB_URL_BASE,
             InfoHandler::JENKINS_URL_BASE
-        ))->shouldBeCalled();
+        );
+        var_dump('expected', $expected);
+        $engine->invoke($expected)->shouldBeCalled();
         $this->handle($chatname, $handle, $body);
     }
 }

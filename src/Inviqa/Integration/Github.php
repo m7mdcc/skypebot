@@ -2,8 +2,6 @@
 
 namespace Inviqa\Integration;
 
-use Inviqa\SkypeEngine;
-
 class Github implements ExternalIntegrationHandler
 {
     protected $dbus;
@@ -15,13 +13,13 @@ class Github implements ExternalIntegrationHandler
 
     public function handle($input)
     {
-        $this->getRequest($input);
+        $request = $this->getRequest($input);
 
         if (!isset($request['payload'])) {
             return;
         }
 
-        if ($payload = json_decode($_REQUEST['payload'])) {
+        if ($payload = json_decode($request['payload'])) {
             $message = array();
 
             foreach ($payload->commits as $commit) {
@@ -38,7 +36,7 @@ class Github implements ExternalIntegrationHandler
                 join("\n", $message)
             );
 
-            $this->dbus->Invoke("CHATMESSAGE {$_REQUEST['id']} $info");
+            $this->dbus->Invoke("CHATMESSAGE {$request['id']} $info");
         }
     }
 
