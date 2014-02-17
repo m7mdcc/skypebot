@@ -6,11 +6,18 @@ use Inviqa\Command\CommandHandlerInterface;
 
 class SkypeEngine
 {
-    protected $dbus = null;
+    protected static $engineInstance;
+
+    protected $dbus;
 
     protected $handlers = array();
 
-    public function __construct(\DbusObject $dbus)
+    public function __construct(\DbusObject $dbus = null)
+    {
+        $this->setDbusObject($dbus);
+    }
+
+    public function setDbusObject(\DbusObject $dbus = null)
     {
         $this->dbus = $dbus;
     }
@@ -42,5 +49,19 @@ class SkypeEngine
         $proxy->Invoke('NAME PHP');
         $proxy->Invoke('PROTOCOL 7');
         return $proxy;
+    }
+
+    public static function setEngineInstance(self $engine)
+    {
+        self::$engineInstance = $engine;
+    }
+
+    public static function notify($str)
+    {
+        try {
+            self::$engineInstance->parse($str);
+        } catch (\Exception $exception) {
+            echo $exception->getMessage().PHP_EOL;
+        }
     }
 }

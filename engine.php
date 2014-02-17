@@ -13,9 +13,7 @@ use Inviqa\Command\ChatMessageCommandHandler;
 use Inviqa\Command\UserCommandHandler;
 use Inviqa\SkypeEngine;
 
-global $n;
-
-$engine = new SkypeEngine($n);
+$engine = new SkypeEngine();
 
 $engine->addCommandHandler(new UserCommandHandler());
 
