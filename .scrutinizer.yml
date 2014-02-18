@@ -1,0 +1,11 @@
+imports:
+    - php
+
+tools:
+  php_code_sniffer:
+    filter:
+      paths: [ src/*, public/* ]
+
+  php_analyzer:
+    filter:
+      paths: [ src/*, public/* ]
