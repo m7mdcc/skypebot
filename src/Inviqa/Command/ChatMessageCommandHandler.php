@@ -27,12 +27,6 @@ class ChatMessageCommandHandler implements CommandHandlerInterface
             $chatname = new SkypeCommand($this->engine->invoke("GET CHATMESSAGE $name CHATNAME"));
             $handle = new SkypeCommand($this->engine->invoke("GET CHATMESSAGE $name FROM_HANDLE"));
             $body = new SkypeCommand($this->engine->invoke("GET CHATMESSAGE $name BODY"));
-//            printf(
-//                "%s %s: %s\n",
-//                $chatname->getValue(),
-//                $handle->getValue(),
-//                $body->getValue()
-//            );
 
             $this->triggerHandlers($chatname, $handle, $body);
         }

@@ -11,7 +11,7 @@ class DeployHandler extends AbstractHandler implements ChatMessageHandlerInterfa
         if (!$this->firstWordIs(':deploy', $body->getValue())) {
             return;
         }
-        
+
         $dir = '/var/lib/bot';
 
         $roomgit = array(
@@ -21,7 +21,9 @@ class DeployHandler extends AbstractHandler implements ChatMessageHandlerInterfa
         );
 
         if (!array_key_exists($chatname->getValue(), $roomgit)) {
-            $this->engine->invoke("CHATMESSAGE {$chatname->getValue()} I don't know about any deployments for this skype room.");
+            $this->engine->invoke(
+                "CHATMESSAGE {$chatname->getValue()} I don't know about any deployments for this skype room."
+            );
             return false;
         }
         $output = array();
@@ -40,11 +42,19 @@ class DeployHandler extends AbstractHandler implements ChatMessageHandlerInterfa
         }
         chdir("$dir/{$url['path']}/tools/capistrano");
 
-        $this->engine->invoke("CHATMESSAGE {$chatname->getValue()} I am deploying {$url['path']} to the development stage.");
+        $this->engine->invoke(
+            "CHATMESSAGE {$chatname->getValue()} I am deploying {$url['path']} to the development stage."
+        );
         exec("cap deploy 2>&1", $output);
         $filename = uniqid();
         $log = "logs/$filename.txt";
-        file_put_contents(__DIR__."/$log", implode("\n", $output));
-        $this->engine->invoke("CHATMESSAGE {$chatname->getValue()} Deployment complete - check http://skypebot.inviqa.com:9001/$log for details.");
+        file_put_contents(__DIR__."/public/$log", implode("\n", $output));
+        $this->engine->invoke(
+            sprintf(
+                'CHATMESSAGE %s Deployment complete - check http://skypebot.inviqa.com:9001/%s for details.',
+                $chatname->getValue(),
+                $log
+            )
+        );
     }
 }

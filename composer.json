@@ -1,9 +1,25 @@
 {
+    "name": "inviqa/skypebot",
+    "description": "PHP driven bot for Skype  DBus interactions",
+    "keywords":  ["skype", "dbus", "inviqa", "php"],
+    "type": "project",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Ben Longden",
+            "email": "blongden@inviqa.com"
+        },
+        {
+            "name": "Shane Auckland",
+            "email": "sauckland@inviqa.com"
+        }
+    ],
     "require": {
         "php": ">=5.4"
     },
     "require-dev": {
-        "phpspec/phpspec": "2.0.*@dev"
+        "phpspec/phpspec": "2.0.*@dev",
+        "squizlabs/php_codesniffer": "1.5.*"
     },
     "autoload": {
         "psr-0": {

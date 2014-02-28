@@ -1,9 +1,24 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+require 'socket'
 
 VAGRANTFILE_API_VERSION = "2"
 
 vm_ip = "192.168.79.229"
+server_name = "skypebot.inviqa.local"
+
+begin
+  res = Socket::getaddrinfo(server_name, nil, Socket::AF_INET)
+rescue SocketError => e
+  # s doesn't resolve to anything at all
+  print "error: [#{server_name}] does not resolve to [#{vm_ip}] (edit /etc/hosts)\n"
+  exit
+end
+if !(Socket::getaddrinfo(server_name, nil, Socket::AF_INET).map { |ip| ip[3] }).any? { |ip| ip == vm_ip } then
+  # s resolves to "wrong" IP
+  print "error: [#{server_name}] does not resolve to [#{vm_ip}] (edit /etc/hosts)\n"
+  exit
+end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
